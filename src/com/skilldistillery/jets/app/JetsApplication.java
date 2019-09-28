@@ -31,10 +31,10 @@ public class JetsApplication {
 				flyAllJets();
 				break;
 			case "3":
-				getFastTestJet(jet);
+				getFastestJet();
 				break;
 			case "4":
-				getLongestRangeJet(jet);
+				getLongestRangeJet();
 				break;
 			case "5":
 				loadCargoPlanes();
@@ -43,7 +43,7 @@ public class JetsApplication {
 				dogfight();
 				break;
 			case "7":
-				addJets(kb);
+				addJets();
 				break;
 			case "8":
 				removeJet();
@@ -100,12 +100,12 @@ public class JetsApplication {
 					break;
 				}
 			}
-		} 
-		
+		}
+
 		catch (FileNotFoundException e) {
 			System.err.println(e);
 		}
-		
+
 		catch (IOException e) {
 			System.err.println(e);
 		}
@@ -125,10 +125,10 @@ public class JetsApplication {
 		}
 	}
 
-	private void getFastTestJet(List<Jet> jetHigh) {
+	private void getFastestJet() {
 		int fast = 0;
 		String jetIndx = " ";
-		for (Jet jet : jetHigh) {
+		for (Jet jet : jet) {
 			int current = jet.getSpeed();
 			String currentStr = jet.toString();
 			if (current > fast) {
@@ -140,10 +140,10 @@ public class JetsApplication {
 		System.out.println(jetIndx);
 	}
 
-	private void getLongestRangeJet(List<Jet> jetHigh) {
+	private void getLongestRangeJet() {
 		int range = 0;
 		String jetIndx = " ";
-		for (Jet jet : jetHigh) {
+		for (Jet jet : jet) {
 			int current = jet.getRange();
 			String currentStr = jet.toString();
 			if (current > range) {
@@ -175,7 +175,7 @@ public class JetsApplication {
 		}
 	}
 
-	private void addJets(Scanner kb) {
+	private void addJets() {
 		System.out.println("Would you like to create a Fighter (F), Cargo (C) or Civilian(Civ) Jet?");
 		String input = kb.next().toLowerCase();
 		System.out.println("Please enter Model: ");
@@ -215,7 +215,7 @@ public class JetsApplication {
 			}
 			System.out.print("Index: ");
 			int input = kb.nextInt();
-
+			
 			jet.remove(input);
 
 		} while (i <= 0);
