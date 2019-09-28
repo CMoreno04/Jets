@@ -31,11 +31,9 @@ public class JetsApplication {
 				flyAllJets();
 				break;
 			case "3":
-				System.out.println("The fastest jet is: \n");
 				getFastTestJet(jet);
 				break;
 			case "4":
-				System.out.println("The jet with the most range is: \n");
 				getLongestRangeJet(jet);
 				break;
 			case "5":
@@ -138,6 +136,7 @@ public class JetsApplication {
 				jetIndx = currentStr;
 			}
 		}
+		System.out.println("The fastest jet is: \n");
 		System.out.println(jetIndx);
 	}
 
@@ -152,6 +151,7 @@ public class JetsApplication {
 				jetIndx = currentStr;
 			}
 		}
+		System.out.println("The jet with the most range is: \n");
 		System.out.println(jetIndx);
 	}
 
