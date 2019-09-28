@@ -54,6 +54,9 @@ public class JetsApplication {
 				System.out.println("GOODBYE!");
 				System.exit(0);
 				break;
+			default:
+				System.out.println("Invalid Entry");
+				break;
 			}
 			i++;
 			j++;
