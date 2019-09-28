@@ -59,8 +59,9 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		
-		return "Model: " + model + "\nSpeed Mach: " + String.format("%.1f", getSpeedInMach()) + "\nRange: " + range +" Miles"+ "\nPrice: " + price + "\n";
+
+		return "Model: " + model + "\nSpeed Mach: " + String.format("%.1f", getSpeedInMach()) + "\nRange: " + range
+				+ " Miles" + "\nPrice: " + price + "\n";
 	}
 
 	@Override

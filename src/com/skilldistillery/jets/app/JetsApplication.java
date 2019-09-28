@@ -213,6 +213,7 @@ public class JetsApplication {
 				System.out.println(element.toString());
 				i++;
 			}
+			System.out.print("Index: ");
 			int input = kb.nextInt();
 
 			jet.remove(input);
