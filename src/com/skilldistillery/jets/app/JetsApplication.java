@@ -1,6 +1,7 @@
 package com.skilldistillery.jets.app;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,9 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
-	AirField AF = new AirField();
-	Scanner kb = new Scanner(System.in);
-	List<Jet> jet = new ArrayList<Jet>();
+	private AirField AF = new AirField();
+	private Scanner kb = new Scanner(System.in);
+	private List<Jet> jet = new ArrayList<Jet>();
 
 	public static void main(String[] args) {
 		JetsApplication app = new JetsApplication();
@@ -101,7 +102,13 @@ public class JetsApplication {
 					break;
 				}
 			}
-		} catch (IOException e) {
+		} 
+		
+		catch (FileNotFoundException e) {
+			System.err.println(e);
+		}
+		
+		catch (IOException e) {
 			System.err.println(e);
 		}
 		jet.addAll(AF.getJets());
@@ -173,7 +180,7 @@ public class JetsApplication {
 		String input = kb.next().toLowerCase();
 		System.out.println("Please enter Model: ");
 		String model = kb.next();
-		System.out.println("Please enter Max Speed: ");
+		System.out.println("Please enter Max Speed (Mph): ");
 		int speed = kb.nextInt();
 		System.out.println("Please enter Max Range: ");
 		int range = kb.nextInt();

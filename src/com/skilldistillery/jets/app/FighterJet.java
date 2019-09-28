@@ -22,7 +22,9 @@ public class FighterJet extends Jet implements CombatMissionReady {
 
 	@Override
 	public void Fly() {
-		System.out.println(getClass().getSimpleName() + " Flying!\n");
+		int playTime=super.getRange()/super.getSpeed();
+		System.out.println(getClass().getSimpleName()+" Flying!");
+		System.out.println("The Jet PlayTime is: "+playTime+" hrs\n");
 	}
 
 	@Override
