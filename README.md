@@ -3,7 +3,7 @@
 ## Third week homework for Skill Distillery
 
 ## Overview
-* This application will give you the options to display jets in a file, fly these jets, view the fastest jet and the jet with the longest range, execute specific commands of these jets depending on specific class, add a new jet to the fleet or remove one, choose a specific jet to fly, hire a pilot and write a new .txt file to save your current list.
+This application will give you the options to display jets in a file, fly these jets, view the fastest jet and the jet with the longest range, execute specific commands of these jets depending on specific class, add a new jet to the fleet or remove one, choose a specific jet to fly, hire a pilot and write a new .txt file to save your current list.
 
 ## Technologies/topics used
 * Abstraction
