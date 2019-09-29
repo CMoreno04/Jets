@@ -1,9 +1,0 @@
-FighterJet, F-15, 1875, 3450, 300000000, Goose, American
-FighterJet, F-16, 1500, 2622, 200000000, Iceman, American
-FighterJet, F-22, 2500, 3650, 400000000, Maveric, American
-CargoPlane, C-5, 579, 2150, 40000000, Bob, American
-CargoPlane, C-130, 368, 2356, 15000000, Smith, British
-CargoPlane, C-17, 590, 5200, 45000000, Johnson, Autralian
-Airliner, Boeing 767, 529, 7348, 100000000, Cpt. Jones, American
-Airliner, Boeing 747-400, 580, 8357, 368000000, Cpt. Martinez, Colombian
-Airliner, Antonov An-148, 541, 2175, 30000000, Tomas, Guayakil
