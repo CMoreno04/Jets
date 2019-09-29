@@ -12,7 +12,7 @@
 ### Iteration
 ### Down Casting
 ### Instantiation
-### Exception
+### Exceptions
 ### Try/Catch/Finally
 ### Math.random();
 
