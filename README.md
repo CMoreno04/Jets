@@ -1,11 +1,11 @@
 # Jets
 
-# Third week homework for Skill Distillery
+## Third week homework for Skill Distillery
 
-# Overview
+## Overview
 ### This application will give you the options to display jets in a file, fly these jets, view the fastest jet and the jet with the longest range, execute specific commands of these jets depending on specific class, add a new jet to the fleet or remove one, choose a specific jet to fly, hire a pilot and write a new .txt file to save your current list.
 
-# Technologies/topics used
+## Technologies/topics used
 ### ArrayList
 ### BufferedReader/BufferedWriter
 ### FileReader/FileWriter
@@ -16,7 +16,7 @@
 ### Try/Catch/Finally
 ### Math.random();
 
-# Lessons
+##  Lessons
 ### Down cast an object then use instanceOf to sort trough these object and find the specific class that was needed.
 
 ### BufferWriter use, I had to create a separate toString in Jet class to format objects into text file.
