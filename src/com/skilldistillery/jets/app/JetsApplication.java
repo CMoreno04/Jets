@@ -1,22 +1,20 @@
 package com.skilldistillery.jets.app;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
 	private AirField AF = new AirField();
 	private Scanner kb = new Scanner(System.in);
-	private List<Jet> jet = new ArrayList<Jet>(AF.getJets());
 
 	public static void main(String[] args) {
 		JetsApplication app = new JetsApplication();
+
 		app.launch();
 	}
 
 	private void launch() {
 		int i = 0, j = 1;
-
+		AF.parkPlanes();
 		do {
 			String input = displayUserMenu(kb);
 			switch (input) {
@@ -57,6 +55,14 @@ public class JetsApplication {
 				break;
 
 			case "10":
+				hirePilot();
+				break;
+				
+			case "11":
+				AF.saveFile(kb);
+				break;
+
+			case "12":
 				System.out.println("\nFLY, FIGHT, WIN!");
 				System.out.println("GOODBYE!");
 				System.exit(0);
@@ -83,21 +89,23 @@ public class JetsApplication {
 		System.out.println("7.Add a jet to Fleet");
 		System.out.println("8.Remove a jet from Fleet");
 		System.out.println("9.Choose a jet to fly");
-		System.out.println("10.Quit");
+		System.out.println("10.Hire pilot");
+		System.out.println("11.Save To Text File");
+		System.out.println("12.Quit");
 		String input = kb.next();
 		return input;
 	}
 
 	private void listFleet() {
 		System.out.println();
-		for (Jet element : jet) {
+		for (Jet element : AF.getJets()) {
 			System.out.println(element.toString());
 		}
 	}
 
 	private void flyAllJets() {
 		System.out.println();
-		for (Jet element : jet) {
+		for (Jet element : AF.getJets()) {
 			element.Fly();
 		}
 	}
@@ -105,7 +113,7 @@ public class JetsApplication {
 	private void getFastestJet() {
 		int fast = 0;
 		String jetIndx = " ";
-		for (Jet jet : jet) {
+		for (Jet jet : AF.getJets()) {
 			int current = jet.getSpeed();
 			String currentStr = jet.toString();
 			if (current > fast) {
@@ -120,7 +128,7 @@ public class JetsApplication {
 	private void getLongestRangeJet() {
 		int range = 0;
 		String jetIndx = " ";
-		for (Jet jet : jet) {
+		for (Jet jet : AF.getJets()) {
 			int current = jet.getRange();
 			String currentStr = jet.toString();
 			if (current > range) {
@@ -133,7 +141,7 @@ public class JetsApplication {
 	}
 
 	private void loadCargoPlanes() {
-		for (Jet jet2 : jet) {
+		for (Jet jet2 : AF.getJets()) {
 			if (jet2 instanceof CargoPlane) {
 				CargoPlane e = (CargoPlane) jet2;
 				e.loadCargo();
@@ -142,7 +150,7 @@ public class JetsApplication {
 	}
 
 	private void dogfight() {
-		for (Jet jet2 : jet) {
+		for (Jet jet2 : AF.getJets()) {
 			if (jet2 instanceof FighterJet) {
 				FighterJet e = (FighterJet) jet2;
 				e.fight();
@@ -161,29 +169,18 @@ public class JetsApplication {
 		int range = kb.nextInt();
 		System.out.println("Please enter Price: ");
 		long price = kb.nextLong();
+		String pilot = AF.getPilot();
+		String nation = AF.getNation();
 
-		switch (input) {
 
-		case "f":
-			Jet f = new FighterJet(model, speed, range, price);
-			jet.add(f);
-			break;
-		case "c":
-			Jet c = new CargoPlane(model, speed, range, price);
-			jet.add(c);
-			break;
-		case "civ":
-			Jet civ = new CargoPlane(model, speed, range, price);
-			jet.add(civ);
-			break;
-		}
+		AF.addJet(input, model, speed, range, price, pilot, nation);
 	}
 
 	private void removeJet() {
 		int i = 0;
 		do {
 			System.out.println("Please enter the index number you would like to remove: \n");
-			for (Jet element : jet) {
+			for (Jet element : AF.getJets()) {
 				System.out.println("Index: " + i);
 				System.out.println(element.toString());
 				i++;
@@ -191,7 +188,11 @@ public class JetsApplication {
 			System.out.print("Index: ");
 			int input = kb.nextInt();
 
-			jet.remove(input);
+			try {
+				AF.removeJet(input);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 		} while (i < 0);
 	}
@@ -200,7 +201,7 @@ public class JetsApplication {
 		int i = 0;
 		do {
 			System.out.println("Please enter the index number of aicraft you would like to fly: \n");
-			for (Jet element : jet) {
+			for (Jet element : AF.getJets()) {
 				System.out.println("Index: " + i);
 				System.out.println(element.toString());
 				i++;
@@ -208,7 +209,37 @@ public class JetsApplication {
 			System.out.print("Index: ");
 			int input = kb.nextInt();
 
-			jet.get(input).Fly();
+			try {
+				AF.getJet(input).Fly();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} while (i < 0);
+	}
+
+	private void hirePilot() {
+		int i = 0;
+		do {
+			System.out.println("Please enter the index number of aicraft you would like to hire a pilot for: \n");
+			for (Jet element : AF.getJets()) {
+				System.out.println("Index: " + i);
+				System.out.println(element.toString());
+				i++;
+			}
+			System.out.print("Index: ");
+			int input = kb.nextInt();
+			kb.nextLine();
+			System.out.println("Please enter pilot name: ");
+			String name = kb.nextLine();
+			System.out.println("Please enter pilot nationality: ");
+			String nationality = kb.nextLine();
+
+			try {
+				AF.hirePilots(input, name, nationality);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 		} while (i < 0);
 	}

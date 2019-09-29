@@ -6,8 +6,8 @@ public class CargoPlane extends Jet implements CargoLoaded {
 		super();
 	}
 
-	public CargoPlane(String model, int speed, int range, long price) {
-		super(model, speed, range, price);
+	public CargoPlane(String model, int speed, int range, long price, String pilot, String nationality) {
+		super(model, speed, range, price, pilot, nationality);
 	}
 
 	@Override
@@ -36,6 +36,11 @@ public class CargoPlane extends Jet implements CargoLoaded {
 	@Override
 	public double getSpeedInMach() {
 		return super.getSpeedInMach();
+	}
+
+	@Override
+	public String toSave() {
+		return super.toSave();
 	}
 
 	@Override

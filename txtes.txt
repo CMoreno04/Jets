@@ -6,4 +6,4 @@ CargoPlane, C-130, 368, 2356, 15000000, Smith, British
 CargoPlane, C-17, 590, 5200, 45000000, Johnson, Autralian
 Airliner, Boeing 767, 529, 7348, 100000000, Cpt. Jones, American
 Airliner, Boeing 747-400, 580, 8357, 368000000, Cpt. Martinez, Colombian
-Airliner, Antonov An-148, 541, 2175, 30000000, Putin, Russian
+Airliner, Antonov An-148, 541, 2175, 30000000, Tomas, Guayakil

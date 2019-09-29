@@ -6,8 +6,8 @@ public class FighterJet extends Jet implements CombatMissionReady {
 		super();
 	}
 
-	public FighterJet(String model, int speed, int range, long price) {
-		super(model, speed, range, price);
+	public FighterJet(String model, int speed, int range, long price, String pilot, String nationality) {
+		super(model, speed, range, price, pilot, nationality);
 	}
 
 	@Override
@@ -36,6 +36,11 @@ public class FighterJet extends Jet implements CombatMissionReady {
 	@Override
 	public int hashCode() {
 		return super.hashCode();
+	}
+
+	@Override
+	public String toSave() {
+		return super.toSave();
 	}
 
 	@Override

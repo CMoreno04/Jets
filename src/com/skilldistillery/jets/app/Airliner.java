@@ -1,13 +1,13 @@
 package com.skilldistillery.jets.app;
 
-public class CivAirliner extends Jet {
+public class Airliner extends Jet {
 
-	public CivAirliner() {
+	public Airliner() {
 		super();
 	}
 
-	public CivAirliner(String model, int speed, int range, long price) {
-		super(model, speed, range, price);
+	public Airliner(String model, int speed, int range, long price, String pilot, String nationality) {
+		super(model, speed, range, price, pilot, nationality);
 	}
 
 	@Override
@@ -26,7 +26,10 @@ public class CivAirliner extends Jet {
 	public String toString() {
 		return super.toString();
 	}
-
+	@Override
+	public String toSave() {
+		return super.toSave();
+	}
 	@Override
 	public int hashCode() {
 		return super.hashCode();

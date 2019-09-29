@@ -2,6 +2,8 @@ package com.skilldistillery.jets.app;
 
 public abstract class Jet {
 	private String model;
+	private String pilot;
+	private String nationality;
 	private int speed;
 	private int range;
 	private long price;
@@ -10,16 +12,22 @@ public abstract class Jet {
 
 	}
 
-	public Jet(String model, int speed, int range, long price) {
+	public Jet(String model, int speed, int range, long price, String pilot, String nationality) {
 		super();
 		this.model = model;
 		this.speed = speed;
 		this.range = range;
 		this.price = price;
+		this.pilot = pilot;
+		this.nationality = nationality;
 	}
 
 	public String getModel() {
 		return model;
+	}
+
+	public String getPilot() {
+		return pilot;
 	}
 
 	public int getSpeed() {
@@ -34,8 +42,16 @@ public abstract class Jet {
 		return price;
 	}
 
+	public String getNationality() {
+		return nationality;
+	}
+
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public void setPilot(String pilot) {
+		this.pilot = pilot;
 	}
 
 	public void setSpeed(int speed) {
@@ -50,6 +66,15 @@ public abstract class Jet {
 		this.price = price;
 	}
 
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	public String toSave() {
+		return getClass().getSimpleName() + ", " + model + ", " + speed + ", " + range + ", " + price + ", " + pilot
+				+ ", " + nationality+"\n";
+	}
+
 	public abstract void Fly();
 
 	public double getSpeedInMach() {
@@ -57,11 +82,10 @@ public abstract class Jet {
 		return mach;
 	}
 
-	@Override
 	public String toString() {
 
-		return "Model: " + model + "\nSpeed Mach: " + String.format("%.1f", getSpeedInMach()) + "\nRange: " + range
-				+ " Miles" + "\nPrice: " + price + "\n";
+		return "Pilot: " + pilot + "\nNationality: " + nationality + "\nModel: " + model + "\nSpeed Mach: "
+				+ String.format("%.1f", getSpeedInMach()) + "\nRange: " + range + " Miles" + "\nPrice: " + price + "\n";
 	}
 
 	@Override
