@@ -13,13 +13,14 @@ public class CargoPlane extends Jet implements CargoLoaded {
 	@Override
 	public void Fly() {
 		int playTime = super.getRange() / super.getSpeed();
-		System.out.println(getClass().getSimpleName() + " Flying!");
+
+		System.out.println(super.getModel() + " " + getClass().getSimpleName() + " Flying!");
 		System.out.println("The Jet PlayTime is: " + playTime + " hrs\n");
 	}
 
 	@Override
 	public void loadCargo() {
-		System.out.println(getClass().getSimpleName() + " Loaded!");
+		System.out.println(super.getModel() + " " + getClass().getSimpleName() + " Loaded!\n");
 	}
 
 	@Override

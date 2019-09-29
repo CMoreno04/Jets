@@ -12,7 +12,8 @@ public class FighterJet extends Jet implements CombatMissionReady {
 
 	@Override
 	public void fight() {
-		System.out.println("Checking-In As Fragged!");
+		System.out.print(super.getModel() + " " + "Checking-In As Fragged!");
+		System.out.println("Tally, Two Hostiles, 2 by Fox-Two!\n");
 	}
 
 	@Override
@@ -23,7 +24,7 @@ public class FighterJet extends Jet implements CombatMissionReady {
 	@Override
 	public void Fly() {
 		int playTime = super.getRange() / super.getSpeed();
-		System.out.println(getClass().getSimpleName() + " Flying!");
+		System.out.println(super.getModel() + " " + getClass().getSimpleName() + " Flying!");
 		System.out.println("The Jet PlayTime is: " + playTime + " hrs\n");
 	}
 

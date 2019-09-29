@@ -13,7 +13,7 @@ public class CivAirliner extends Jet {
 	@Override
 	public void Fly() {
 		int playTime = super.getRange() / super.getSpeed();
-		System.out.println(getClass().getSimpleName() + " Flying!");
+		System.out.println(super.getModel() + " " + getClass().getSimpleName() + " Flying!");
 		System.out.println("The Jet PlayTime is: " + playTime + " hrs\n");
 	}
 

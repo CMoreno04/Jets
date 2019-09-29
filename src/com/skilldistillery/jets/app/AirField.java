@@ -1,22 +1,64 @@
 package com.skilldistillery.jets.app;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AirField {
 	private List<Jet> jets = new ArrayList<Jet>();
 
-	public void addJets(Jet t) {
-		jets.add(t);
+	public AirField() {
 	}
 
 	public List<Jet> getJets() {
-		List<Jet> jetCopy;
+		List<Jet> jetCopy = new ArrayList<Jet>();
 
-		jetCopy = new ArrayList<Jet>();
+		parkPlanes();
 		jetCopy.addAll(jets);
 
 		return jetCopy;
+	}
+
+	private void parkPlanes() {
+		try (BufferedReader bufIn = new BufferedReader(new FileReader("Jets.txt"))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+				String[] jetsRecord = line.split(", ");
+				String type = jetsRecord[0];
+				String model = jetsRecord[1];
+				int speed = Integer.parseInt(jetsRecord[2]);
+				int range = Integer.parseInt(jetsRecord[3]);
+				long price = Long.parseLong(jetsRecord[4]);
+
+				switch (type) {
+
+				case "Fighter":
+					Jet j = new FighterJet(model, speed, range, price);
+					jets.add(j);
+					break;
+
+				case "Cargo":
+					Jet c = new CargoPlane(model, speed, range, price);
+					jets.add(c);
+					break;
+				case "CivAir":
+					Jet civ = new CivAirliner(model, speed, range, price);
+					jets.add(civ);
+					break;
+				}
+			}
+		}
+
+		catch (FileNotFoundException e) {
+			System.err.println(e);
+		}
+
+		catch (IOException e) {
+			System.err.println(e);
+		}
 	}
 
 	@Override
