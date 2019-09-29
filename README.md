@@ -29,4 +29,4 @@ This application will give you the options to display current jets in the fleet,
 
 * Utilized interface to include specific methods on individual classes.
 
-* Don't underestimate myself. I really thought that some of the stretch goals where unattainable, but really proved myself wrong there by accomplishing all of them.  
+* Don't underestimate myself. I really thought that some of the stretch goals where unattainable, but proved myself wrong by accomplishing all of them.  
