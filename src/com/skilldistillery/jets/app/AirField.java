@@ -43,6 +43,7 @@ public class AirField {
 
 	public void removeJet(int index) {
 		jets.remove(index);
+
 	}
 
 	public void hirePilots(int input, String name, String nationality) {
@@ -147,7 +148,7 @@ public class AirField {
 		String fileName = kb.next();
 
 		BufferedWriter output = null;
-		File file=new File(fileName + ".txt");
+		File file = new File(fileName + ".txt");
 		if (!file.exists()) {
 
 			try {

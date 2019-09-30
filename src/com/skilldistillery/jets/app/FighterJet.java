@@ -12,7 +12,7 @@ public class FighterJet extends Jet implements CombatMissionReady {
 
 	@Override
 	public void fight() {
-		System.out.print(super.getModel() + " " + "Checking-In As Fragged!");
+		System.out.print(super.getModel() + " " + "Checking-In As Fragged!\n");
 		System.out.println("Tally, Two Hostiles, 2 by Fox-Two!\n");
 	}
 

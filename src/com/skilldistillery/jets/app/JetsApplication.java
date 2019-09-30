@@ -1,12 +1,13 @@
 package com.skilldistillery.jets.app;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JetsApplication {
 	private AirField AF = new AirField();
 	private Scanner kb = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		JetsApplication app = new JetsApplication();
 
 		app.launch();
@@ -57,7 +58,7 @@ public class JetsApplication {
 			case "10":
 				hirePilot();
 				break;
-				
+
 			case "11":
 				AF.saveFile(kb);
 				break;
@@ -172,7 +173,6 @@ public class JetsApplication {
 		String pilot = AF.getPilot();
 		String nation = AF.getNation();
 
-
 		AF.addJet(input, model, speed, range, price, pilot, nation);
 	}
 
@@ -185,11 +185,15 @@ public class JetsApplication {
 				System.out.println(element.toString());
 				i++;
 			}
-			System.out.print("Index: ");
+			System.out.print("Model: ");
 			int input = kb.nextInt();
 
 			try {
 				AF.removeJet(input);
+			}
+
+			catch (InputMismatchException e) {
+				e.getMessage();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
