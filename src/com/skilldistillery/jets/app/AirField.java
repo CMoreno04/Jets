@@ -147,10 +147,11 @@ public class AirField {
 		String fileName = kb.next();
 
 		BufferedWriter output = null;
-		if (!fileName.equals("Jets")) {
+		File file=new File(fileName + ".txt");
+		if (!file.exists()) {
 
 			try {
-				output = new BufferedWriter(new FileWriter(new File(fileName + ".txt")));
+				output = new BufferedWriter(new FileWriter(file));
 				for (Jet jet2 : jets) {
 					output.write(jet2.toSave());
 				}
